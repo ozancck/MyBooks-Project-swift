@@ -15,6 +15,7 @@
 		3102D2B828EC994900A290DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3102D2B728EC994900A290DB /* Assets.xcassets */; };
 		3102D2BB28EC994900A290DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3102D2B928EC994900A290DB /* LaunchScreen.storyboard */; };
 		316149B228EDF0630070C2E3 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316149B128EDF0630070C2E3 /* DetailsVC.swift */; };
+		316149B428EDFB510070C2E3 /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 316149B328EDFB510070C2E3 /* select.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3102D2BA28EC994900A290DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3102D2BC28EC994900A290DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		316149B128EDF0630070C2E3 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		316149B328EDFB510070C2E3 /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = select.png; path = ../../../select.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		3102D2AA28EC994700A290DB /* MyBooksProject */ = {
 			isa = PBXGroup;
 			children = (
+				316149B328EDFB510070C2E3 /* select.png */,
 				3102D2AB28EC994700A290DB /* AppDelegate.swift */,
 				3102D2AD28EC994700A290DB /* SceneDelegate.swift */,
 				3102D2AF28EC994700A290DB /* ViewController.swift */,
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3102D2BB28EC994900A290DB /* LaunchScreen.storyboard in Resources */,
+				316149B428EDFB510070C2E3 /* select.png in Resources */,
 				3102D2B828EC994900A290DB /* Assets.xcassets in Resources */,
 				3102D2B328EC994700A290DB /* Main.storyboard in Resources */,
 			);

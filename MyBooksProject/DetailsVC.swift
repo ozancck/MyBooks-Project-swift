@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -55,6 +56,29 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     @IBAction func saveButtonClicked(_ sender: Any) {
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let newBook = NSEntityDescription.insertNewObject(forEntityName: "Books", into: context)
+        
+        newBook.setValue(nameText.text!, forKey: "name")
+        newBook.setValue(writerText.text!, forKey: "writer")
+        
+        if let year = Int(yearText.text!){
+            newBook.setValue(year, forKey: "year")
+        }
+        
+        newBook.setValue(UUID(), forKey: "id")
+        
+        let data = imageView.image!.jpegData(compressionQuality: 0.5)
+        newBook.setValue(data, forKey: "image")
+        
+        do{
+            try context.save()
+            print("succes")
+        }catch {
+            print("errro")
+        }
         
     }
     

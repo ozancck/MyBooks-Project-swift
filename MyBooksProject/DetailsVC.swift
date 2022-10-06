@@ -16,18 +16,58 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var writerText: UITextField!
     @IBOutlet weak var yearText: UITextField!
     
-    
-    override func viewDidLoad() {
+    var chosenBook = ""
+    var chosenBookId: UUID?
+        override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        if chosenBook != "" {
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Books")
+            let idString = chosenBookId?.uuidString
+            fetchRequest.predicate = NSPredicate(format: "id = %@", idString!)
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                
+                if results.count > 0 {
+                    for result in results as! [NSManagedObject] {
+                        if let name = result.value(forKey: "name") as? String {
+                            nameText.text = name
+                        }
+                        
+                        if let writer = result.value(forKey: "writer") as? String {
+                            writerText.text = writer
+                        }
+                        
+                        if let year = result.value(forKey: "year") as? Int {
+                            yearText.text = String(year)
+                        }
+                        
+                        if let imageData = result.value(forKey: "image") as? Data {
+                            let image = UIImage(data: imageData)
+                            imageView.image = image
+                        }
+                    }
+                }
+            } catch {
+                print("error")
+            }
+            
+            
+        }
+        
         let gestureRecognizer = UIGestureRecognizer(target: self, action: #selector(hideKeyboard))
         
         
         imageView.isUserInteractionEnabled = true
         let imageTabRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectImage))
         imageView.addGestureRecognizer(imageTabRecognizer)
-        
-        
         
     }
     

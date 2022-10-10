@@ -115,6 +115,7 @@
                     <connections>
                         <outlet property="imageView" destination="has-tf-nYc" id="FTv-XH-chf"/>
                         <outlet property="nameText" destination="WiQ-PX-S3j" id="MFI-MZ-FWi"/>
+                        <outlet property="saveButton" destination="2Fv-6W-IGy" id="Jem-Zr-rYc"/>
                         <outlet property="writerText" destination="Wi5-AL-aId" id="KaG-2v-sIZ"/>
                         <outlet property="yearText" destination="TVJ-5p-yhV" id="tcm-zO-Zjw"/>
                     </connections>

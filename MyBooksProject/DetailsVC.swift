@@ -15,6 +15,7 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var writerText: UITextField!
     @IBOutlet weak var yearText: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     var chosenBook = ""
     var chosenBookId: UUID?
@@ -24,6 +25,7 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         if chosenBook != "" {
             
+            saveButton.isHidden = true
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
             
@@ -60,6 +62,9 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             }
             
             
+        }else{
+            saveButton.isHidden = false
+            saveButton.isEnabled = false
         }
         
         let gestureRecognizer = UIGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -84,6 +89,7 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[.editedImage] as? UIImage
+        saveButton.isEnabled = true
         self.dismiss(animated: true)
         
         
